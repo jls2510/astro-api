@@ -1,4 +1,4 @@
-package com.ping23.test;
+package com.ping23.crypt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
