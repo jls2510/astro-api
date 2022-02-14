@@ -50,10 +50,17 @@ dependencies {
     // spring boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	
-	// database
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	runtimeOnly 'com.h2database:h2'
+	// AES encryption
+    implementation 'commons-codec:commons-codec:1.11'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    
+    // API Key
+    implementation group: 'org.springframework.security', name: 'spring-security-crypto', version: '5.2.1.RELEASE'
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
 	
+	// RSA Encryption
+    implementation group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.64'
+
 	// util
 	implementation 'com.google.code.gson:gson:2.8.8'
 	
