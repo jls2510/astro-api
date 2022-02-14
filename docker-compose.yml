@@ -1,0 +1,10 @@
+version: '3'
+services:
+  astro-api:
+    container_name: astro-api
+    image: com.ping23/astro-api:latest
+    volumes:
+      - ./docker_tunnel:/home/docker_tunnel
+    ports:
+      - 8023:8080
+    restart: always

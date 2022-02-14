@@ -1,18 +1,44 @@
+buildscript {
+	ext {
+		registryPrefix = "ping23"
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.4.RELEASE")
+	}
+}
+
 plugins {
-	id 'org.springframework.boot' version '2.5.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'org.springframework.boot' version '2.5.9'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id "com.palantir.docker" version "0.32.0"
+	id "io.freefair.lombok" version "6.4.0"
 }
 
 group = 'com.ping23'
-version = '0.0.1-SNAPSHOT'
+version = '0.1'
 
 sourceCompatibility = '11'
+
+bootJar {
+	mainClassName = 'com.ping23.astro.Application'
+	version = version
+}
 
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+}
+
+docker {
+	dependsOn bootJar
+	name "${group}/${rootProject.name}"
+	buildArgs(['JAR_FILE': "${rootProject.name}-${version}.jar"])
+	files bootJar.archivePath
 }
 
 repositories {

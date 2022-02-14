@@ -1,4 +1,4 @@
-package com.ping23.test;
+package com.ping23.astro;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
